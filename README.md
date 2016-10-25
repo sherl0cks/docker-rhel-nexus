@@ -1,8 +1,11 @@
-# sonatype/openshift-nexus
+# sonatype/docker-rhel-nexus [![Build Status](https://travis-ci.org/sonatype/docker-rhel-nexus.svg?branch=Nexus2)](https://travis-ci.org/sonatype/docker-rhel-nexus)
 
 Dockerfiles, templates and scripts for Sonatype Nexus Repository Manager 2 
 with OpenJDK and Red Hat Enterprise Linux 7. Made to run on the Red Hat 
 OpenShift Container Platform.
+
+Looking for Nexus 3? Checkout the [master branch](https://github.com/sonatype/docker-rhel-nexus). |
+--- |
 
 * [Docker](#docker)
   * [Notes](#notes)
