@@ -80,7 +80,7 @@ RUN useradd -l -u ${USER_UID} -r -g 0 -m -d ${NEXUS_DATA} -s /sbin/no-login \
 COPY scripts/fix-permissions.sh /usr/local/bin/
 
 RUN chmod 755 /usr/local/bin/fix-permissions.sh && sync && \
-    /usr/local/bin/fix-permissions ${NEXUS_DATA} && \
+    /usr/local/bin/fix-permissions.sh ${NEXUS_DATA} && \
     chown -R ${USER_NAME}:0 ${NEXUS_DATA}
 
 VOLUME ${NEXUS_DATA}
