@@ -30,19 +30,12 @@ echo "=================================="
 echo
 oc login -u ${OPENSHIFT_CLI_USER} -p ${OPENSHIFT_CLI_PASSWORD}
 
-# Create CI Project
+# Create OPENSHIFT_NEXUS_PROJECT Project
 echo
 echo "Creating new Nexus Project (${OPENSHIFT_NEXUS_PROJECT})..."
 echo "=================================="
 echo
 oc new-project ${OPENSHIFT_NEXUS_PROJECT}
-
-echo
-echo "Configuring project permissions..."
-echo "=================================="
-echo
-# Grant Default CI Account Edit Access to All Projects and OpenShift Project
-oc policy add-role-to-user edit system:serviceaccount:${OPENSHIFT_NEXUS_PROJECT}:default -n ${OPENSHIFT_NEXUS_PROJECT}
 
 # Process Nexus Template
 echo
@@ -51,22 +44,8 @@ echo "=================================="
 echo
 oc create -f "${SCRIPT_BASE_DIR}/nexus3.json" -n ${OPENSHIFT_NEXUS_PROJECT}
 
-sleep 10
-
-echo
-echo "Starting Nexus 3 binary build..."
-echo "=================================="
-echo
-oc start-build -n ${OPENSHIFT_NEXUS_PROJECT} nexus3 --follow
-
-
-
-sleep 10
-
-# Go back to CI project
-oc project ${OPENSHIFT_NEXUS_PROJECT}
-
 echo
 echo "=================================="
 echo "Setup Complete!"
+echo "Please wait for project to build."
 echo "=================================="
