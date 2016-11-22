@@ -24,3 +24,5 @@ RUN set -x && \
     yum -y update-minimal --security --sec-severity=Important --sec-severity=Critical --setopt=tsflags=nodocs && \
     yum -y install --setopt=tsflags=nodocs tar java-1.8.0-oracle-devel && \
     yum clean all
+
+CMD ["/bin/bash"]
