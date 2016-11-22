@@ -85,4 +85,4 @@ ENV JAVA_MAX_MEM=1200m \
 
 EXPOSE 8081
 
-CMD ["bin/nexus", "run"]
+CMD ["bin/bash"]
