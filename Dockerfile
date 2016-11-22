@@ -25,4 +25,4 @@ RUN set -x && \
     yum -y install --setopt=tsflags=nodocs tar java-1.8.0-oracle-devel && \
     yum clean all
 
-CMD ["/bin/bash"]
+CMD ["bin/bash"]
