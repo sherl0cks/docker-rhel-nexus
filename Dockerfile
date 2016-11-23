@@ -52,7 +52,8 @@ ENV NEXUS_DATA=/nexus-data \
     NEXUS_HOME=/opt/sonatype/nexus \
     NEXUS_VERSION=3.0.2-02 \
     USER_NAME=nexus \
-    USER_UID=200
+    USER_UID=200 \ 
+    JAVA_HOME=/usr/lib/jvm
 
 RUN mkdir -p ${NEXUS_HOME} && \
     curl --fail --silent --location --retry 3 \
